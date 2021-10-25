@@ -1,0 +1,468 @@
+/**
+ * @file
+ * Custom Styling Overrides
+ *
+ */
+
+.clearfix {
+  @include clearfix;
+}
+
+@include breakpoint($desktop) {
+
+  @include add-grid(12);
+  @include add-gutter(1/1);
+
+  .span-3-1 {
+    @include grid-span(3, 1);
+  }
+
+  .span-3-7 {
+    @include grid-span(3, 7);
+  }
+
+  .span-3-10 {
+    @include grid-span(3, 10);
+  }
+
+  .span-4-1 {
+    @include grid-span(4, 1);
+  }
+
+  .span-5-1 {
+    @include grid-span(5, 1);
+  }
+
+  .span-6-1 {
+    @include grid-span(6, 1);
+  }
+
+  .span-6-7 {
+    @include grid-span(6, 7);
+  }
+
+  .span-8-5 {
+    @include grid-span(8, 5);
+  }
+
+  .span-9-4 {
+    @include grid-span(9, 4);
+  }
+
+}
+
+// two column layout
+.column-2 {
+  @include clearfix;
+  > div {
+    @include breakpoint($desktop) {
+      width: 47%;
+      float: left;
+      margin-right: 4%;
+      &:nth-child(2n) {
+        margin-right: 0;
+        margin-left: 1%;
+      }
+      &:nth-child(2n+1) {
+        clear:both;
+      }
+    }
+  }
+}
+
+// three column layout
+body:not(.page-search-cases):not(.page-search) .column-3 {
+  @include clearfix;
+  > div {
+    @include breakpoint($desktop) {
+      width: 32%;
+      float: left;
+      margin-right: 2%;
+      &:nth-child(3n) {
+        margin-right: 0;
+        margin-left: 0;
+      }
+      &:nth-child(3n+1) {
+        clear:both;
+      }
+    }
+  }
+}
+
+// four column layout
+.column-4 {
+  @include clearfix;
+  > div {
+    @include breakpoint($desktop) {
+      width: 21%;
+      float: left;
+      margin-right: 4%;
+      &:nth-child(4n) {
+        margin-right: 0;
+        margin-left: 0;
+      }
+      &:nth-child(4n+1) {
+        clear:both;
+      }
+    }
+  }
+}
+
+// two column layout on tablet
+.column-2,
+body:not(.page-search-cases):not(.page-search) .column-3,
+.column-4 {
+  > div {
+    margin-bottom: 30px;
+    @include breakpoint($tablet-only) {
+      float: left;
+      margin-right: 2%;
+      width: 100%;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+      &:nth-child(2n-1) {
+        clear:both;
+      }
+    }
+  }
+}
+ 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+@include breakpoint($lg-mobile) {
+  .left,
+  .right {
+    float: none;
+  }
+}
+
+@include breakpoint($mobile) {
+  .left,
+  .right {
+    float: none;
+  }
+}
+
+#main {
+  .front & {
+    background-color: $owhite;
+  }
+  > .inner-wrapper {
+    //@include margin(3em null 2.4em);
+    @include margin(3em null 0.7rem);
+    .front & {
+      max-width: none;
+      @include margin(0);
+    }
+  }
+}
+
+// Case documents headline
+.case-documents {
+  @include sprite-before('../images/sprite100px.png', -13px -151px, 60px auto, 35px, 35px, -7px, 0);
+}
+.block--views-case-documents-block,
+.block--views-case-documents-node-block {
+  h2.block-title {
+    @include sprite-before('../images/sprite100px.png', -13px -151px, 60px auto, 35px, 35px, -7px, 0);
+    font-family: $base-font-family;
+    font-weight: bold;
+    @include font-size(23.4);
+    margin-top:1.217em;
+  }
+
+}
+
+// Custom file icon
+span.file {
+  @include sprite-before('../images/sprite60px.png', center -213px, 30px auto, 25px, 18px, 0, 0);
+  display: block;
+  margin-bottom: 5px;
+  padding-left: 25px;
+  .file-icon {
+    display: none;
+  }
+}
+
+h2.block-title-shadow {
+  margin: 0;
+  position: relative;
+  text-align: center;
+  @include font-size(32);
+  padding: 20px 0;
+  &:after {
+    content: '';
+    background: url(../images/drop-shadow.png) center 100% no-repeat;
+    background-size:100% auto;
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    bottom: -10px;
+    left: 0;
+    z-index: 1;
+  }
+  span {
+    color: $red;
+    font-family: $sans;
+    font-weight: bold;
+    @include font-size(28);
+    display: inline-block;
+    border-left: $border;
+    margin-left: 6px;
+    padding-left: 10px;
+  }
+  @include breakpoint($mobile){
+    padding:15px 0;
+    span {
+      padding-left:0;
+      margin-left:0;
+      border-left:none;
+      display:block;
+    }
+  }
+}
+
+strong.blue-label {
+  font-family: $sans;
+  font-weight: bold;
+  @include font-size(16);
+  line-height: 1.4em;
+  color: $blue;
+}
+
+.homepage-quote-block {
+  padding: 70px 0;
+  background: $white;
+  text-align: center;
+  @include font-size(20);
+  h2 {
+    @extend strong.blue-label;
+    display: inline-block;
+    border-bottom: $border;
+    padding: 22px 0 26px;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 36px;
+      height: 32px;
+      background: url(../images/sprite60px.png) 0 -785px no-repeat;
+      position: relative;
+      top: 10px;
+      margin-right: 15px;
+    }
+  }
+  blockquote {
+    background: none;
+    padding: 0;
+    margin-top:10px;
+    font-family: $serif;
+    @include font-size(28);
+    font-weight: normal;
+    &:before {
+      display: none;
+    }
+    p {
+      line-height:1.4;
+    }
+    + p {
+      margin-bottom:0;
+    }
+    ~ p.date-display-single {
+      font-size:1.8rem;
+    }
+  }
+
+  @include breakpoint($mobile){
+    padding-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    blockquote {
+      margin-top: 15px;
+    }
+    h2:before {
+      margin-bottom: 20px;
+      margin-right: auto;
+      margin-left: auto;
+      display: block;
+    }
+    blockquote {
+      margin-right: 0;
+      margin-left: 0;
+      font-size: 2.2rem;
+      + p {
+        @include font-size(18);
+        line-height: 1.4;
+      }
+    }
+  }
+  p {
+    font-family: $serif;
+    &.date-display-single {
+      font-family: $sans;
+      color: lighten($black, 40%);
+      margin-top:0;
+    }
+  }
+}
+
+.featured-case-view {
+  .view-content {
+    padding: 40px 0;
+    @extend .column-3;
+  }
+}
+
+
+//JON
+
+.tm-tab-enabled {
+  .tm-tab-label {
+    display: none;
+  }
+  .tm-tab-content {
+    &.tm-tab-hide {
+      display: none;
+    }
+  }
+}
+
+.tm-tab-links {
+    @include list-reset;
+    border-bottom: solid 1px;
+    li {
+        margin-right: 1%;
+        margin-left: 1%;
+        margin-bottom: 0%;
+        color: #1d415b;
+    }
+    li.active {
+      border-bottom: solid 8px;
+      font-weight: bold;
+      padding-bottom: 2%;
+    }
+    li > a {
+        color: #1d415b;
+        line-height: 1.3em;
+        font-size: 14px;
+        em {
+          display: block;
+          font-size: 16px;
+        }
+
+    }
+    li.active > a{
+        color: #1d415b;
+    }
+    &.tab-count-2 li{
+      width: 48%;}
+    &.tab-count-3 li{
+      width: 31%;}
+    &.tab-count-4 li{
+      width: 23%;}
+}
+.tm-tab-content {
+  padding: 1em;
+}
+
+
+
+@include breakpoint($all-devices){
+  .tm-tab-enabled .tm-tab-label {
+    display: block; }
+
+  .tm-tab-enabled .tm-tab-content.tm-tab-hide {
+    display: block; }
+
+  ul.tm-tab-links {
+    display: none; }
+  .horizontal-tabs .horizontal-tabs-panes > fieldset {
+    display: block; }
+}
+
+.casedocfoot h3 {
+  text-indent: 30px; 
+  font-size: 20px;
+}
+
+.case-update-case-update {
+  @include breakpoint($desktop) {
+    //min-width: 700px;
+  }
+}
+
+.block--views-cases-block-1 {
+  .views-row {
+    position:relative;
+  }
+  .field-view-case {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 1.6em;
+    text-align: center;
+    padding: 0 20px;
+    width: 100%;
+  }
+  .box-teaser, .node--view-mode-box-teaser {
+    padding-bottom: 90px;
+  }
+}
+
+.view--recent-activity-entity div.view-header {
+  text-align: center;
+}
+
+.node--view-mode-full .field--court {
+  font-size: 1.5em !important;
+}
+
+.view--recent-activity-entity-mk-block- h2.block-title,
+.mock-block-views-recent-activity-entity-block h2.block-title,
+#block-views-recent-activity-entity-block h2.block-title {
+    font-family: "kepler-std", Georgia, "Times New Roman", "DejaVu Serif", serif;
+    font-weight: normal;
+    text-align: center; 
+    font-size: 5.73309rem;
+    line-height: 1em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+.view--recent-activity-entity-mk-block- .view-header,
+.mock-block-views-recent-activity-entity-block .view-header {
+  h2.block-title {
+    margin-bottom:0.5rem;
+    + p {
+      margin-top:0.5rem;
+      margin-bottom:0;
+    }
+  }
+  text-align: center;
+}
+.whatwedo .field--date {
+  margin-top: -2em; 
+}
+
+.view--advanced-search .field_extra_fields_title {
+  padding-right: 60px;   
+}
+
+#footer .inner-wrapper {
+  margin-top: -1.5em;  
+}
+
+.caps {
+  font-size:1em;
+}
+
+.view-internal-reports .views-row {
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  margin-bottom: solid 1px #333; 
+}

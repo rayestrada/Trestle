@@ -1,0 +1,125 @@
+/**
+ * Rows of search results
+ */
+ #content {
+   .view-row-search-result {
+     padding: 20px 0;
+     border-bottom: 1px solid $ltgray;
+     .views-field-rendered-entity + .views-field-view {
+       margin-top: 15px;
+     }
+     .activity-cards .view-content {
+       padding-top: 0;
+       > .views-row {
+         #main & {
+           float: none;
+           width: auto;
+         }
+       }
+     }
+     .entity-case-update {
+       border-left: 5px solid #eee;
+       padding-left: 1em;
+       margin-left: 10px;
+       min-width: 100px;
+       padding-bottom: 10px;
+       > *:last-child {
+         margin-bottom: 0;
+       }
+     }
+     .field--filing-headline > p {
+       margin: 0;
+     }
+   }
+   .view-row-search-result,
+   .node--view-mode-search-result {
+     .field {
+       margin: 0;
+     }
+     .field--court {
+       display: inline;
+       position: relative;
+       @include font-size(14);
+       line-height: 1.2em;
+       > div {
+         display: inline;
+         @include sprite-before('../images/sprite48px.png',center -304px, 24px auto, 24px, 24px, 0, 0);
+       }
+     }
+     .field--status {
+       display: inline;
+       position: relative;
+       @include font-size(14);
+       line-height: 1.2em;
+       font-weight: bold;
+       margin-right: 8px;
+       &:before {
+         content: ':\0020';
+       }
+       div {
+         display: inline;
+         position: relative;
+         //top: .06em;
+       }
+     }
+     .field--outcome-date {
+       display: inline;
+       div {
+         display: inline;
+       }
+     }
+     .date-display-single,
+     .date-display-range > span {
+       line-height: 1.2em;
+       //@include font-size(14);
+       font-weight: bold;
+     }
+     .linked-h3 {
+       margin: 6px 0;
+     }
+     .field--filing-headline {
+       //@include font-size(20);
+       line-height: 1.2em;
+
+     }
+     &.supreme-court {
+       .field--court > div:before {
+         background-position: center -220px;
+         margin-right: 10px;
+       }
+     }
+   }
+
+ }
+
+body.page-search-cases,
+body.page-search {
+  .views-field-field-date {
+    padding-bottom: 2em;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1em;
+  }
+  .intro {
+    border-bottom: none;
+  }
+}
+
+.node--person.node--view-mode-search-result {
+  .field--image {
+    float: left;
+    max-width: 80px;
+    padding-right: 16px;
+    @include breakpoint($tablet) {
+      margin-right: -100%;
+      max-width: 116px;
+      + .group-content-group {
+        margin-left: 120px;
+      }
+    }
+  }
+  .field--job-title {
+    @include font-size(14);
+    line-height: 1.5em;
+    font-weight: bold;
+  }
+}

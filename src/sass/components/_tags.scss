@@ -1,0 +1,234 @@
+/**
+ * Tags
+ */
+%tag-list,
+ul.tag-list {
+  @include list-reset();
+  li {
+    margin-bottom: auto;
+  }
+}
+
+%tags,
+.tags {
+  background-color: $black;
+  color: #ffffff;
+  padding: 6px 10px;
+  margin: 4px 4px 4px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  @include font-size(12);
+  line-height: 1em;
+  display: inline-block;
+}
+
+// Administrative Law & Regulatory Litigation
+.tags.salmon,
+.tags.tag-1891,
+.tags.parent-1891 {
+  @include tag-color($salmon);
+}
+
+// Antitrust & Competition Law
+.tags.tomato,
+.tags.tag-1893,
+.tags.parent-1893 {
+  @include tag-color($tomato);
+}
+// Arbitration
+.tags.crimson,
+.tags.tag-1894,
+.tags.parent-1894 {
+  @include tag-color($crimson);
+}
+// Asbestos
+.tags.orange,
+.tags.tag-1877,
+.tags.parent-1877 {
+  @include tag-color($orange);
+}
+// Attorney Client Privilege & Work Product
+.tags.yelloworange,
+.tags.tag-1895,
+.tags.parent-1895 {
+  @include tag-color($yelloworange);
+}
+// Benefits & Compensation
+.tags.sienna,
+.tags.tag-1897,
+.tags.parent-1897 {
+  @include tag-color($sienna);
+}
+// Capital Markets, Securities & Corporate Governance
+.tags.umber,
+.tags.tag-1912,
+.tags.parent-1912 {
+  @include tag-color($umber);
+}
+
+// Class Actions & Mass Actions
+.tags.teal,
+.tags.tag-1898,
+.tags.parent-1898 {
+  @include tag-color($teal);
+}
+
+// Contingency Fee Arrangements
+.tags.yellowgreen,
+.tags.tag-1925,
+.tags.parent-1925 {
+  @include tag-color($yellowgreen);
+}
+
+// EEOC & Employment
+.tags.green,
+.tags.tag-1899,
+.tags.parent-1899 {
+  @include tag-color($green);
+}
+
+// Energy & Environment
+.tags.pine,
+.tags.tag-1900,
+.tags.parent-1900 {
+  @include tag-color($pine);
+}
+
+// False Claimes & Whistleblowing
+.tags.avocado,
+.tags.tag-1982,
+.tags.parent-1982 {
+  @include tag-color($avocado);
+}
+
+// Federal Preemption & Commerce Clause
+.tags.aqua,
+.tags.tag-1976,
+.tags.parent-1976  {
+  @include tag-color($aqua);
+}
+
+// Food & Drug
+.tags.cobalt,
+.tags.tag-1864,
+.tags.parent-1864 {
+  @include tag-color($cobalt);
+}
+
+// Free Speech
+.tags.steelblue,
+.tags.tag-1903,
+.tags.parent-1903 {
+  @include tag-color($steelblue);
+}
+
+// Health Care
+.tags.indigo,
+.tags.tag-1865,
+.tags.parent-1865 {
+  @include tag-color($indigo);
+}
+
+// Insurance
+.tags.redviolet,
+.tags.tag-1866,
+.tags.parent-1866 {
+  @include tag-color($redviolet);
+}
+
+// Intellectual Property
+.tags.orchid,
+.tags.tag-1906,
+.tags.parent-1906 {
+  @include tag-color($orchid);
+}
+
+// International: Tort Tourism & Cross Border Issues
+.tags.pink,
+.tags.tag-1902,
+.tags.parent-1902 {
+  @include tag-color($pink);
+}
+
+// Jurisdiction & Procedure
+.tags.purple,
+.tags.tag-1907,
+.tags.parent-1907 {
+  @include tag-color($purple);
+}
+
+// Labor Relations & NLRB
+.tags.brickred,
+.tags.tag-1908,
+.tags.parent-1908 {
+  @include tag-color($brickred);
+} 
+
+// Overcriminalization & Investigations
+.tags.lilac,
+.tags.tag-1909,
+.tags.parent-1909 {
+  @include tag-color($lilac);
+}
+
+// Privacy & Cybersecurity
+.tags.lime,
+.tags.tag-1914,
+.tags.parent-1914 {
+  @include tag-color($lime);
+}
+
+// Property Rights
+.tags.periwinkle,
+.tags.tag-1876,
+.tags.parent-1876 {
+  @include tag-color($periwinkle);
+}
+
+
+// Punitive Damages & Remedies
+.tags.blueviolet,
+.tags.tag-1911,
+.tags.parent-1911 {
+  @include tag-color($blueviolet);
+}
+
+// Tax Litigation
+.tags.seafoam,
+.tags.tag-1913,
+.tags.parent-1913 {
+  @include tag-color($seafoam);
+}
+
+// Tort & Products Liability
+.tags.goldenrod,
+.tags.tag-1910,
+.tags.parent-1910 {
+  @include tag-color($goldenrod);
+}
+
+// ZZZRemoved
+// General Business
+// Stub
+// Federal Premptive
+.tags.medgray,
+.tags.tag-2083,
+.tags.parent-2083,
+.tags.parent-1904,
+.tags.parent-1892,
+.tags.parent-1901 { 
+  @include tag-color($medgray);
+}
+
+.field--issue {
+  .issue-field-wrapper & {
+    margin: 0;
+  } 
+  .field-items {
+    @extend %tag-list;
+    a {
+      margin: 4px 4px 4px 0;
+    }
+  } 
+}
+

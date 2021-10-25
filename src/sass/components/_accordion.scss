@@ -1,0 +1,33 @@
+.custom-accordion {
+	.content {
+		background-color: $owhite;
+		//padding: 26px 20px;
+		}
+	h3 {
+		text-transform: uppercase;
+      	@include font-size(16);
+      	@include breakpoint($mobile) {
+        	@include font-size(14);
+      	}
+      	line-height: 1.2em;
+		background-color: $blue;
+        a {
+          color: $white;
+          padding: 14px;
+          display:block;
+        }
+    i.fa:before {
+			content:'\f00d ';
+			padding-right: 10px;
+		}    
+		
+	}	
+	.field--accordion-content {
+		padding: 26px 20px;
+	}
+	&.collapsed {
+		i.fa:before {
+			content:'\f067 ';
+		}
+	}
+}

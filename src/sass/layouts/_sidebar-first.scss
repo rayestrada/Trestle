@@ -1,0 +1,31 @@
+/**
+ * The layout when there is only one sidebar, the left one.
+ */
+
+
+/**
+ * Use 3 grid columns for smaller screens.
+ */
+
+
+/**
+ * Use 5 grid columns for larger screens.
+ */
+@include breakpoint($desktop) {
+
+  @include add-grid(14);
+  @include add-gutter(1/1);
+
+  .sidebar-first {
+    /* Span 4 columns, starting in 2nd column from left. */
+    #content {
+      @include grid-span(10, 5);
+    }
+
+    /* Span 1 column, starting in 1st column from left. */
+    .sidebar-first {
+      @include grid-span(4, 1);
+    }
+  }
+
+}

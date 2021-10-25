@@ -1,0 +1,255 @@
+// @file
+// Custom sass mixins
+//
+// Define the custom mixins for your project here.
+// http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#defining_a_mixin
+
+// Makes an element visually hidden, but accessible.
+// @see http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+@mixin element-invisible {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+// Turns off the element-invisible effect.
+@mixin element-invisible-off {
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: auto;
+}
+
+// Makes an element visually hidden by default, but visible when focused.
+@mixin element-focusable {
+  @include element-invisible;
+
+  &:active,
+  &:focus {
+    @include element-invisible-off;
+  }
+}
+
+// Rem with pixel fallback
+@mixin font-size($sizeValue: 16) {
+  font-size: $sizeValue + px;
+  font-size: ($sizeValue / 10) + rem;
+}
+
+@mixin tm-transition($type) {
+  -webkit-transition: $type;
+  -moz-transition: $type;
+  -ms-transition: $type;
+  -o-transition: $type;
+  transition: $type;
+}
+
+// define a global box-shadow style
+@mixin boxshadow {
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+// A global setting that can be used for controlling container widths
+%inner-wrapper {
+  position: relative;
+  @include clearfix;
+  max-width: $screen-tablet - 60px;
+  margin: 0 24px;
+  @include breakpoint($tablet-only) {
+    margin: 0 auto;
+  }
+  @include breakpoint($desktop){
+    max-width: $screen-max - 120px;
+    margin: 0 60px;
+  }
+  @include breakpoint($lg-desktop) {
+    margin: 0 auto;
+  }
+}
+
+
+// Isolate a hover effect only for non-touch screens - requires Modernizr with touch detection
+@mixin notouchhover {
+  .no-touchevents & {
+    &:hover,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+// Fully prefixed placeholder styling
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+// Prefixed border radius shortcut
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// Flexible video container
+.video-player,
+%video {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* padding-top: 30px; */
+  height: 0;
+  overflow: hidden;
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+}
+
+// Global button styling
+%button {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  border: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  cursor: pointer;
+  color: #fff;
+  font-family: $sans;
+  font-weight: bold;
+  text-transform: uppercase;
+  @include font-size(16);
+  line-height: 42px;
+  min-height: 42px;
+  padding: 0 20px;
+  @include breakpoint($mobile) {
+    @include font-size(14);
+  }
+}
+
+@mixin button($bgcolor) {
+  @extend %button;
+  background-color: $bgcolor;
+  @include tm-transition(all 300ms);
+  @include notouchhover {
+    background-color: darken($bgcolor, 7%);
+  }
+}
+
+// Image icon before element
+@mixin sprite-before($image,$position,$size,$height,$width,$top,$left) {
+  > * {
+    display: inline;
+  }
+  &:before {
+    background: url($image) no-repeat;
+    background-position: $position;
+    background-size: $size;
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: $height;
+    width: $width;
+    margin-right: 10px;
+  }
+}
+
+// Left floated inline menu with no margin, padding or border
+@mixin list-reset($type: float) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include clearfix;
+  li {
+    list-style-type: none;
+    list-style-image: none;
+    @if $type == float {
+      float: left;
+      display: block;
+    }
+    @else if $type == inline {
+      display: inline;
+    }
+    @else if $type == inline-block {
+      display: inline-block;
+    }
+  }
+}
+
+// Issue tags
+@mixin tag-color($color) {
+  background-color: $color;
+  &:hover {
+    background-color: darken($color, 7%);
+  }  
+}
+
+// trim top and bottom margins on first and last elements inside a container
+%trim {
+  > * {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// remove the containment of the inner wrapper
+%bleed {
+  > .inner-wrapper {
+    max-width: none;
+    @include margin(null 0);
+  }
+}
+@mixin bleed {
+  > .inner-wrapper {
+    max-width: none;
+    @include margin(null 0);
+  }
+}
+
+// create a centered container
+@mixin center($width: 100%) {
+  max-width: $width;
+  @include margin(null auto);
+}
+
+// auto scroll with smooth scrolling on touch devices
+%scroll {
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+@mixin noscroll {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}

@@ -1,0 +1,32 @@
+/**
+ * Breadcrumb navigation.
+ */
+.breadcrumb {
+  color: $medgray;
+  @include font-size(14);
+  @include margin(1em null);
+  min-height: 1em;
+  .node-type-case & {
+    @include breakpoint($tablet) {
+      @include margin(2.4em null);
+      ol {
+         display: block;
+       }
+    }
+  }
+  ol {
+    @include list-reset(inline);
+    display: none;
+    li {
+      margin: 0;
+      padding: 0 0 0 5px;
+      &:first-child {
+        padding-left: 0;
+      }
+      a {
+        color: $medgray;
+        padding: 0 5px 0 0;
+      }
+    }
+  }
+}

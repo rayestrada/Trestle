@@ -1,0 +1,37 @@
+/**
+ * @file
+ * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
+ *
+ * When you turn on CSS aggregation at admin/config/development/performance, all
+ * of these @include files will be combined into a single file.
+ */
+
+/* Import Sass mixins, variables, modules, etc. */
+// Add the Breakpoint mixins
+@import "breakpoint";
+// Add the Singularity responsive layout mixins.
+@import "singularitygs";
+
+// Add Bourbon mixin library
+// See http://bourbon.io/docs/
+@import "bourbon";
+
+// Now we add our custom settings.
+@import "base/base";
+
+/* Layout rules */
+@import "layouts/layout-base";
+
+/* Components */
+@import "components/components";
+
+/* Drupal Specific components */
+@import "drupal/drupal";
+
+/* Region rules */
+@import "regions/regions";
+
+
+// Optionally, add your own components here.
+@import "custom";
+@import "print";

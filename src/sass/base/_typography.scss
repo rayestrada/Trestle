@@ -1,0 +1,197 @@
+//Define your custom font styles for selectors here
+h1 {
+    letter-spacing: -1px;
+}
+
+h1,
+h2 {
+    font-family: $base-heading-font;
+    font-weight: normal;
+    color: $black;
+}
+
+// Heading style
+h3,
+h4,
+h5,
+h6 {
+    color: $black;
+}
+
+.block h2 {
+    font-size: modular-scale(3);
+}
+
+.sidebar h2 {
+    font-size: modular-scale(2);
+    color: $blue;
+}
+
+h2 {
+    margin: 1em 0 0.75em;
+}
+
+h3 {
+    line-height: 1.2em;
+    margin: 1em 0;
+
+    .front & {
+        font-family: $base-heading-font;
+    }
+}
+
+blockquote {
+    position: relative;
+    padding: 30px 30px 30px 60px;
+    margin: 30px 60px;
+    @include font-size(20);
+    font-weight: bold;
+    line-height: 1.2em;
+    background-color: $owhite;
+    @extend %trim;
+
+    &:before {
+        content: '';
+        position: absolute;
+        height: 24px;
+        width: 24px;
+        background-image: url("../images/sprite60px.png");
+        background-position: -4px -180px;
+        background-size: 30px auto;
+        top: 30px;
+        left: 24px;
+    }
+}
+
+a {
+    color: $linkblue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border-bottom: $border;
+    border-top: 0;
+}
+
+.intro {
+    border-bottom: 1px solid $ltgray;
+    font-size: modular-scale(2);
+    line-height: 1.4em;
+    padding-bottom: 1em;
+    @include breakpoint($mobile) {
+        @include font-size(20);
+    }
+}
+
+a.button-link {
+    @include button($ltblue);
+    line-height: 1.2em;
+    @include padding(14px null);
+
+    &.small {
+        font-size: 1.4rem;
+        line-height: 1;
+        min-height: auto;
+        padding: 10px;
+    }
+}
+
+a.hide-desktop,
+.hide-desktop,
+%hide-desktop {
+    @include breakpoint($desktop) {
+        display: none;
+    }
+}
+
+.filter-sidebar-block {
+    h2.block-title {
+        @extend %hide-desktop;
+    }
+}
+
+.fa-file-text,
+.fa-external-link-square {
+    color: $ltblue;
+    margin-left: 5px;
+}
+
+ul,
+ol {
+    li {
+        margin-bottom: 0.75em;
+    }
+}
+
+ul.no-bullets {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+        line-height: 2.2rem;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+}
+
+.date-display-single,
+.date-display-start,
+.date-display-end {
+    font-weight: bold;
+    @include font-size(16);
+}
+
+.description {
+    @include font-size(13);
+    line-height: 1.4em;
+    margin: 0.5em 0;
+}
+
+a.feed-icon {
+    display: none;
+}
+
+ul.pager {
+    @include list-reset(inline-block);
+    @include margin(1.5em null);
+
+    &.pager-show-more a {
+        @extend a.button-link;
+    }
+}
+
+// Date display on Story posts
+// Story author image placement
+.page-blog,
+.node-type-story {
+    span.date-display-single {
+        font-size: 1.8rem;
+    }
+
+    .field--story-author,
+    .field--author-title {
+        font-weight: bold;
+    }
+
+    .field--image {
+        float: right;
+        padding: 0 2rem;
+    }
+}
+
+a[name] {
+    display: block;
+    position: relative;
+    top: -250px;
+    visibility: hidden;
+}
+

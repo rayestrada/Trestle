@@ -1,0 +1,141 @@
+#marketing {
+  padding-top: 2rem;
+  background-color: $owhite;
+  .front & {
+    background-color: #fff;
+  }
+  .dark-theme & {
+    background-color: $black;
+    * {
+      color:#fff;
+    }
+  }
+  .linked-h3 {
+    display: block;
+  }
+  .unlinked-h3 {
+    display: none;
+  }
+  .show-unlinked-h3 {
+    .linked-h3 {
+      display:none;
+    }
+    .unlinked-h3 {
+      display: block;
+    }
+  }
+  .block--views-person-block,
+  .block--views-person-block-1 {
+    padding: 2em 0;
+    h2 {
+      font-size:3.98131rem;
+      .node--person h3 {
+        font-family:$serif;
+        margin-bottom:0;
+        margin-top:17px;
+      }
+    } 
+  }
+}
+.view--content-column-4 .view-content {
+  @include clearfix;
+  > div {
+    @include breakpoint($tablet) {
+      float: left;
+      margin-right: 4%;
+    }
+    margin-bottom: 4%;
+    @include breakpoint($desktop) {
+      width: 22%;
+      &:nth-child(4n) {
+        margin-right: 0;
+        margin-left: 0;
+      }
+      &:nth-child(4n+1) {
+        clear:both;
+      }
+    }
+    @include breakpoint($tablet-only) {
+      width: 47%;
+      &:nth-child(2n) {
+        margin-right: 0;
+        margin-left: 0;
+      }
+      &:nth-child(2n+1) {
+        clear:both;
+      }
+    }
+  }
+
+  .field--job--title,
+  .field--job-title {
+    @include font-size(15);
+    line-height: 1.5;
+  }
+  .field--image img,
+  .field-image img {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+    @include notouchhover{
+      -webkit-filter: grayscale(1);
+      filter: grayscale(1);
+    }
+  }
+}
+
+.field--company {
+  @include font-size(15);
+  font-weight: bold;
+  line-height: 1.5em;
+}
+
+#block-views-person-block {
+  .node--person {
+    text-align: center;
+    @include breakpoint($tablet) {
+      .field--image img {
+        max-width: 75%;
+      }
+    }
+  }
+  .view-footer {
+    text-align: center;
+    border-top: 1px solid #555;
+    padding-top: 30px;
+    h2 {
+      display:inline-block;
+      &:after {
+        content:':';
+        margin-right:6px;
+        @include breakpoint($mobile){
+          content:'';
+        }
+
+        @include breakpoint($lg-mobile){
+          content:'';
+        }
+      }
+    }
+    p {
+      margin: 0;
+      @include breakpoint($tablet) {
+        display: inline-block;
+        &:last-child {
+          border-left: 1px solid #555;
+          padding-left: 12px;
+        }
+      }
+      @include breakpoint($desktop) {
+        @include font-size(16);
+      }
+      &:first-child {
+        text-transform: uppercase;
+        @include breakpoint($tablet) {
+          @include font-size(16);
+          margin-right: 6px;
+
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+.horizontal-tabs {
+  margin: 1em 0;
+  position: relative;
+  background-color: $owhite;
+  &.hide-tabs {
+    background: transparent;
+    ul.horizontal-tabs-list {
+      display: none;
+    }
+    .horizontal-tabs-panes {
+      padding: 0;
+    }
+  }
+  ul.horizontal-tabs-list {
+    @include list-reset(float);
+    position: relative;
+    width: 100%;
+    clear: both;
+    li.horizontal-tab-button {
+      width: 50%;
+      text-align: center;
+      text-transform: uppercase;
+      @include font-size(16);
+      @include breakpoint($mobile) {
+        @include font-size(14);
+      }
+      line-height: 1.2em;
+      margin-bottom: 0;
+      background-color: $blue;
+      &.selected {
+        background-color: transparent;
+        a {
+          color: $blue;
+        }
+      }
+      a {
+        padding: 14px;
+        display: block;
+        color: $white;
+        font-weight: bold;
+      }
+    }
+  }
+  .horizontal-tabs-panes {
+    padding: 26px 20px;
+    > fieldset {
+      > legend {
+        display: none;
+      }
+      .fieldset-wrapper {
+        @extend %trim;
+      }
+    }
+  }
+}
+.horizontal-tabs-panes {
+  > fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    > legend {
+      text-transform: uppercase;
+      @include font-size(16);
+      line-height: 1.2em;
+      font-weight: bold;
+      color: $blue;
+    }
+    &.horizontal-tab-hidden {
+      display: block;
+      position: absolute;
+      top: -100000px;
+      width: 100%;
+    }
+  }
+}

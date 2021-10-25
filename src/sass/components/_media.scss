@@ -1,0 +1,31 @@
+.media-youtube-video {
+  @extend %video;
+}
+
+// SOCIAL MEDIA
+#block-block-9 {
+  margin: 2em 0;
+  text-align: right;
+  .content:before {
+    content: 'SHARE: ';
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 10px;
+    @include font-size(14);
+  }
+}
+.addthis_toolbox {
+  display: inline-block;
+  vertical-align: middle;
+  > a {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 42px !important;
+    text-align: center;
+    > span {
+      height: 42px !important;
+      width: 42px !important;
+      padding-top: 5px;
+    }
+  }
+}

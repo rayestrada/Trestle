@@ -1,0 +1,172 @@
+/**
+ * Rows of search results
+ */
+/*
+body:before {
+  content:'';
+  display:block;
+  height:1px;
+  width:100%;
+  position:fixed;
+  border-top:1px solid #ff9900;
+  top:486px;
+  z-index: 1000;
+}
+*/
+
+
+ #content {
+ 	.node--case {
+  		&.node--view-mode-expanded-teaser{
+  			padding: 20px 0;
+  			border-bottom: 1px solid $ltgray;
+  			.field {
+  				margin: 0;
+  			}	
+    	  	.field--court {
+			    display: inline;
+			    position: relative;
+				@include font-size(14);
+				line-height: 1.2em;
+			    > div {
+			      display: inline;
+			      @include sprite-before('../images/sprite100px.png',center -290px, 40px auto, 24px, 24px, 0, 0);
+			    }
+		  	}
+          .field--case-update {
+            padding-top:0px;
+            .field {
+              margin:0.5em 0;
+              + h4 {
+                margin-top:-1em;
+                margin-bottom:0;
+                p {
+                  margin-bottom:0;
+                }
+              }
+            }
+          }
+			.field--outcome-date {
+				 display: inline;
+				 div {
+				 	display: inline;
+				 }
+				.date-display-single {
+				    line-height: 1.2em;
+					@include font-size(14);
+				    font-weight: bold;
+			    }
+			}
+			.linked-h3 {
+			  	margin: 6px 0;
+			}
+			.field--filing-headline {
+				@include font-size(20);
+				line-height: 1.2em;
+
+			}
+			.field--filing-description,
+			.field--outcome-content {
+				@include font-size(16);
+				line-height: 1.2em;
+				margin: 5px 0;
+			}
+			.group-details-group {
+				background-color: $owhite;
+				@include add-grid(4);
+  				@include add-gutter(0);
+  				@include clearfix;
+  				padding:8px;
+			}
+			.field--term,
+			.field--docket-number,
+			.field--vote,
+			.field--oral-argument-date {
+				line-height: 1.2em;
+				@include font-size(14);
+				padding: 2px 5px;
+				vertical-align: top;
+				.date-display-single {
+					line-height: 1.2em;
+					@include font-size(14);
+					font-weight: normal;					
+				}
+				.field-label {
+					font-weight: normal;
+				}
+			}
+			// column formatting
+
+			.field--term {
+				@include grid-span(4,1);
+				@include breakpoint($tablet) {
+					@include grid-span(1,1);
+				}
+			}
+			.field--docket-number {
+				@include grid-span(4,1);
+				@include breakpoint($tablet) {
+					@include grid-span(1,2);
+				}
+			}
+			.field--oral-argument-date  {
+				@include grid-span(4,1);
+				@include breakpoint($tablet) {
+					@include grid-span(1,3);
+				}
+			}
+			.field--vote  {
+				@include grid-span(4,1);
+				@include breakpoint($tablet) {
+					@include grid-span(1,4);
+				}
+			}
+
+			// icon for supreme court
+			&.supreme-court {
+	  			.field--court > div:before {
+	  				background-position: center -210px;
+	  			}
+	  		}
+	  		
+	  		&.decided {
+	  			.field--court:after {
+	  				content: ": Decided ";
+	  			}
+	  			.field--outcome-content {
+	  				display: block;
+	  			}
+	  			.field--filing-description {
+	  				display: none;
+	  			}
+	  		}
+	  		&.undecided {
+	  			.field--court:after {
+	  				content: ": Undecided";
+	  			}
+	  			.field--outcome-content {
+	  				display: none;
+	  			}
+	  			.field--filing-description {
+	  				display: block;
+	  			}
+	  		}
+  		}  		
+	}
+	// hide details table from showing on non-SCOTUS pages				
+	.view--party-litigation,
+	.view-id-federal_filings,
+	.view-state-court-filings {
+		.node--case {
+  			&.node--view-mode-expanded-teaser {
+	  			.group-details-group {
+	  				display: none;
+	  			}
+  			}
+  		}
+	}
+ }
+
+.view--person .node--person.node--view-mode-teaser .field--job-title {
+ 	text-transform: uppercase;
+ }

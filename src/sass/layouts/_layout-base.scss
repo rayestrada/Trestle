@@ -1,0 +1,48 @@
+/**
+ * @file
+ * Positioning for a responsive layout.
+ *
+ * Define CSS classes to create a fluid grid layout with optional sidebars
+ * depending on whether blocks are placed in the left or right sidebars.
+ *
+ * This layout uses the SingularityGS
+ */
+
+
+@include sgs-change('output', 'isolation');
+
+
+/**
+ * Center the page.
+ *
+ * For screen sizes larger than 1200px, prevent excessively long lines of text
+ * by setting a max-width.
+ */
+.inner-wrapper {
+  @extend %inner-wrapper;
+  .inner-wrapper {
+    @include margin(null auto);
+  }
+}
+.center-900 {
+  @include center(900px);
+}
+
+/* LAYOUT FOR MOBILE MENU */
+@include breakpoint($all-devices){
+  #page {
+    position: relative;
+    z-index: 2;
+    left: 0;
+    @include tm-transition(all 500ms ease);
+    .menu-active & {
+      left: -255px;
+      //transform: translateX(-255px);
+    }
+  }
+}
+
+@import "no-sidebars";
+@import "sidebar-first";
+@import "sidebar-second";
+@import "two-sidebars";

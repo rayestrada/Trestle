@@ -1,0 +1,260 @@
+/**
+ * Navigation bar.
+ */
+#navigation {
+  background: rgba(29, 65, 91, 0.9);
+  position: relative;
+  @include breakpoint($desktop) {
+    height: 100px;
+  }
+  #logo {
+    float: left;
+    padding: 16px 0;
+    position: relative;
+    z-index: 100;
+    max-width: 210px;
+    @include breakpoint($tablet) {
+      max-width: 300px;
+    }
+    @include breakpoint($desktop) {
+      padding: 30px 0;
+    }
+    @include breakpoint($lg-desktop) {
+      padding: 24px 0;
+      max-width: none;
+    }
+    a {
+      color: $white;
+    }
+  }
+
+
+  /* Main menu and secondary menu links and menu block links. */
+
+  ul.links,
+  ul.menu {
+    @include list-reset();
+    text-align: left;
+    @include font-size(14);
+    @include breakpoint($lg-desktop) {
+      @include font-size(16);
+    }
+    > li {
+      font-weight: 600;
+      padding-bottom: 0;
+      position: relative;
+      text-transform: uppercase;
+      margin-bottom: 0;
+      &.search {
+        display: none;
+        position: relative;
+        a {
+          font-size: 0;
+          padding-left: 0;
+          height: 100px;
+        }
+        a:before {
+          background: url(../images/sprite60px.png) no-repeat 20px 0;
+          background-size: 30px auto;
+          border-left: 1px solid rgba(255, 255, 255, 0.3);
+          content: '';
+          display: block;
+          height: 30px;
+          width: 50px;
+        }
+      }
+      .parentlink {
+        display: none;
+      }
+      a {
+        color: $white;
+        display: block;
+        padding: 36px 18px;
+        @include breakpoint($lg-desktop) {
+          padding: 36px 20px;
+        }
+        text-decoration: none;
+        line-height: 28px;
+        @include tm-transition(background 300ms);
+      }
+      ul.menu {
+        background: $ltblue;
+        display: none;
+        float: none;
+        padding: 30px 22px 22px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 200;
+        min-width: 100%;
+        li {
+          float: none;
+          margin: 0;
+          a {
+            background: none;
+            font-weight: 400;
+            line-height: 1em;
+            padding: 0;
+            padding-bottom: 16px;
+            text-transform: none;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+
+  .menu {
+    @include breakpoint($desktop) {
+      float: right;
+      li.hover {
+        border-top: 6px solid $medblue;
+        a {
+          background: $ltblue;
+          padding-top: 30px;
+        }
+        ul.menu {
+          display: block;
+        }
+      }
+    }
+  }
+  .region-navigation {
+    .header-search {
+      padding: 0;
+      margin: 0;
+      width: auto;
+      input[type="submit"] {
+        width: 40px;
+        margin-left: -40px;
+        opacity: 0;
+        height: 50px;
+      }
+      .form-item.form-type-textfield {
+        padding-right: 40px;
+        background-position: 220px 14px;
+        @extend %search;
+        padding-left: 0;
+        background-color: darken($blue, 8%);
+        input[type="text"] {
+          padding-left: 30px;
+          padding-right: 0;
+          background: none;
+          min-width: 100px;
+          color: $white;
+          height: 50px;
+        }
+      }
+    }
+    .search-link-block {
+      padding: 12px 30px;
+      width: auto;
+      margin-left: auto;
+    }
+    @include breakpoint($desktop) {
+      .search-link-block,
+      .header-search {
+        display: none;
+      }
+    }
+    @include breakpoint($all-devices) {
+      background-color: $blue;
+      height: 100%;
+      overflow-y: auto;
+      padding: 0 0 50px;
+      position: fixed;
+      right: -255px;
+      top: 0;
+      width: 255px;
+      z-index: 0;
+      @include tm-transition(all 500ms ease);
+      .menu-active & {
+        right: 0;
+      }
+      .block {
+        @include bleed;
+      }
+      .menu {
+        padding-bottom: 10px;
+        > li {
+          cursor: pointer;
+          display: block;
+          float: none;
+          list-style: none;
+          margin: 0;
+          text-decoration: none;
+          > li {
+            float: none;
+          }
+          &.search a {
+            font-size: inherit;
+            &:before {
+              display: none;
+            }
+          }
+          .parentlink {
+            display: block;
+            + a {
+              display: none;
+            }
+          }
+          a {
+            color: $white;
+            padding: 12px 30px;
+            line-height: $lineheight;
+          }
+          &:first-child a {
+            padding-top: 22px;
+          }
+          ul.menu {
+            background: none;
+            padding: 10px;
+            position: relative;
+            li {
+              border-bottom: none;
+              a {
+                padding-bottom: 0;
+              }
+            }
+          }
+          &.reveal {
+            > li.parentlink {
+              &:before {
+                content: '[ \2014  ]';
+                font-size: 12px;
+                font-size: 1.2rem;
+              }
+              a {
+                @include element-invisible;
+              }
+              + a {
+                display: block;
+              }
+            }
+            > ul.menu {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .mobile-menu-trigger {
+    display: none;
+    float: right;
+    padding: 19px 0;
+    @include breakpoint($tablet) {
+      padding: 25px 0;
+    }
+    span {
+      background: $white;
+      display: block;
+      height: 3px;
+      margin: 4px 0;
+      width: 24px;
+    }
+    @include breakpoint($all-devices){
+      display: block;
+    }
+  }
+}

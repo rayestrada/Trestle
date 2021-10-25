@@ -1,0 +1,42 @@
+/**
+ * News Alert
+ */
+.block--news-alert {
+  background-color: $black;
+  margin: 0;
+  padding: 0;
+  .page-blog & {
+    display: none;
+  }
+  article {
+    @include font-size(16);
+    line-height: 1.4em;
+    color: $white;
+    text-align: center;
+    padding: 14px 0;
+    .node-type-person &,
+    .node-type-case &,
+    .node-type-event &,
+    .node-type-story &,
+    .node-type-press-release & {
+      @include font-size(14);
+      text-align: left;
+    }
+    a {
+      color: $ltblue;
+    }
+    .field--na-title {
+      font-weight:bold;
+      padding-right:5px;
+    }
+    .field--message {
+      padding-right:5px;
+    }
+    .field,
+    .field-items,
+    .field-item {
+      display: inline;
+      margin:0;
+    }
+  }
+}

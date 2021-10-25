@@ -1,0 +1,125 @@
+#footer {
+  background-size: cover;
+  max-width: none;
+  padding: 60px 0 0 0;
+  background-color: $blue;
+  background-image: url("../images/footer-BG.jpg");
+  @extend %bleed;
+  .issues-menu {
+    @include breakpoint($mobile) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    h2 {
+      color: $owhite;
+      font-size: 3.2rem;
+      line-height: 3.2rem;
+      text-align: center;
+      position: relative;
+      margin: 0;
+      @include breakpoint($tablet) {
+        position: relative;
+        margin: 0 0 50px 0;
+        /*&:before {
+          background-size: 300px auto; 
+          content: '';
+          display: inline-block;
+          width: 45px;
+          height: 45px;
+          vertical-align: middle;
+          margin: 0 10px 0 0;
+        }*/
+        &:after {
+          content: '';
+          position: absolute;   
+          background-size: 100%;
+          background-repeat: no-repeat;
+          height: 10px;
+          width: 100%;
+          left: 0;
+          top: 90px;
+        }
+      }
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      @include breakpoint($tablet) {
+        text-align: left;
+        -webkit-column-count: 2; /* Chrome, Safari, Opera */
+        -moz-column-count: 2; /* Firefox */
+        column-count: 2;
+        -webkit-column-gap: 40px;
+        -moz-column-gap: 40px;
+        column-gap: 40px;
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      @include breakpoint($desktop) {
+        -webkit-column-count: 3; /* Chrome, Safari, Opera */
+        -moz-column-count: 3; /* Firefox */
+        column-count: 3;
+        -webkit-column-gap: 40px;
+        -moz-column-gap: 40px;
+        column-gap: 40px;
+        @include center(1000px);
+      }
+      li {
+        margin: 0;
+        padding: 0;
+        font-size: 1.6rem;
+        line-height: 1.7rem;
+        font-family: $base-font-family;
+        font-weight: bold;
+        //margin: 20px 0 0 0;
+        a {
+          color: $white;
+          display: inline-block;
+          margin: 20px 0 0 0;
+        }
+      }
+    }
+  }
+
+  .copyright-block {
+    background: rgba(0, 0, 0, 0.15);
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: $white;
+    padding: 30px 0 100px 0;
+    margin: 50px 0 0 0;
+    text-align: center;
+    @include breakpoint($tablet) {
+      text-align: left;
+    }
+    p {
+      float: left;
+      margin: 0;
+      @include breakpoint($all-devices) {
+        float: none;
+      }
+      &:after {
+        clear: both;
+      }  
+    }
+    ul.menu {
+      float: right;
+      @include list-reset(inline);
+      @include breakpoint($all-devices) {
+        float: none;
+        margin: 20px 0 0 0;
+      }
+      li {
+        padding-right: 15px;
+        &:last-child {
+          padding-right: 0;
+        }
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}

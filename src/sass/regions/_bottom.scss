@@ -1,0 +1,37 @@
+.region-page-bottom {
+  .copyright-block {
+    background-color: $blue;
+    font-size: 1.4rem;
+    color: $white;
+    padding: 0;
+    p {
+      float: left;
+      margin: 0;
+      @include breakpoint($all-devices) {
+        float: none;
+      }
+      &:after {
+        clear:both;
+      }
+    }
+    ul.menu {
+      float: right;
+      @include list-reset;
+      @include breakpoint($all-devices) {
+        float: none;
+      }
+      li {
+        padding-right: 15px;
+        &:last-child {
+          padding-right: 0;
+        }
+        a {
+          color: $white;
+        }
+      }
+    }
+
+    
+  }
+
+} 

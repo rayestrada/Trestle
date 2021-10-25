@@ -1,0 +1,213 @@
+/**
+ * Rows of teasers on Recent Activity, or from a Marketing Issue
+ */
+.read-more {
+  font-family: $base-font-family;
+  font-weight: bold;
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0 15px 0 0;
+  position: relative;
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-left: 6px solid $ltblue;
+    border-bottom: 6px solid transparent;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &:hover {
+    color: darken($ltblue, 7%);
+    text-decoration: none;
+    &:after {
+      border-left-color: darken($ltblue, 7%);
+    }
+  }
+}
+
+.node-teaser-list-item,
+.view-activity {
+  position: relative;
+  padding: 20px 0 20px 0;
+  &.views-row {
+    border-bottom: 1px solid $ltgray;
+  }
+  &.views-row:last-child {
+    border-bottom: 0;
+  }
+  @include breakpoint($tablet) {
+    padding: 20px 0 20px 140px;
+  }
+  &:before {
+    background: url("../images/sprite180px.png") no-repeat;
+    background-position: 0 0;
+    background-size: 45px auto;
+    content: '';
+    height: 45px;
+    width: 45px;
+    left: 0px;
+    top: 18px;
+    display: block;
+    @include breakpoint($tablet) {
+      position: absolute;
+      background-size: 90px auto;
+      height: 90px;
+      width: 90px;
+      top: 40px;
+    }
+  }
+  &.other {
+    &:before {
+      background-position: 0 -107px;
+      @include breakpoint($tablet) {
+        background-position: 0 -215px;
+      }
+    }
+  }
+  &.icon-outcome, &.merits-outcome, &.petition-outcome {
+    &:before {
+      background-position: 0 -55px;
+      @include breakpoint($tablet) {
+        background-position: 0 -112px;
+      }
+    }
+  }
+  &.icon-alert {
+    &:before {
+      background-position: 0 -162px;
+      @include breakpoint($tablet) {
+        background-position: 0 -327px;
+      }
+    }
+  }
+  &.icon-case-news-story, &.node--press-release  {
+    &:before {
+      background-position: 0 -162px;
+      @include breakpoint($tablet) {
+        background-position: 0 -327px;
+      }
+    }
+  }
+  h3 {
+    margin: 20px 0 0 0;
+  }
+  p {
+    margin: 10px 0 18px 0;
+    font-weight: normal;
+    &.byline {
+      @include font-size(16);
+      margin: 10px 0 18px 0;
+      > span {
+        @include font-size(16);
+        font-weight: normal;
+      }
+      em {
+        font-family: $Kepler;
+        font-size: 1.8rem;
+      }
+      @include breakpoint($tablet) {
+        margin: 10px 0 18px 0;
+      }
+    }
+  }
+  .views-field-field-date em,
+  .field--date-type em {
+    font-family: $Kepler;
+    font-size: 1.8rem;
+  }
+  .views-field-view-node a,
+  .field--node-link a {
+    @extend .read-more;
+  }
+}
+.view-activity {
+  .field--update-description,
+  .views-field-field-update-description {
+    margin-top:0;
+    * {
+      margin-top:0;
+    }
+    p {
+      margin-bottom: 18px;
+      line-height:1.2;
+    }
+  }
+  .views-field-field-date,
+  .field--date {
+    margin-bottom:0;
+    margin-top: 0;
+    * {
+      margin-bottom:0;
+    }
+  }
+}
+
+
+.view--merits-petitions .field--date-type em {
+  font-family: $Kepler;
+  font-size: 1.8rem;
+}
+
+/* BOX TEASER
+*****************************/
+.box-teaser,
+.node--view-mode-box-teaser {
+  background: $white;
+  padding: 20px;
+  header h2 {
+    margin: 0;
+    line-height: 1em;
+    a {
+      color: $black;
+    }
+  }
+  .field--court {
+    font-weight: bold;
+    @include font-size(14);
+    color: $black;
+    @include margin(0.75em null);
+    > div {
+      @include sprite-before('../images/sprite100px.png', center -290px, 40px auto, 24px, 24px, 0, 0);
+      &:before {
+        margin-right: -24px;
+      }
+      > * {
+        padding-left: 34px;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1.2em;
+      }
+    }
+  }
+  &.supreme-court .field--court {
+    > div:before {
+      background-position: center -210px;
+    }
+  }
+  .field--filing-description,
+  .field--outcome-content {
+    line-height: 1.45em;
+  }
+  .field--issue {
+    display: none;
+  }
+  .field--case-update {
+    .field-item {
+      display: none;
+      &:last-child {
+        display: block;
+      }
+    }
+  }
+  .field-view-case {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+}

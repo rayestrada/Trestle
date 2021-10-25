@@ -1,0 +1,40 @@
+.node--person {
+  .field--job-title {
+    @extend h3;
+  }
+  &.node--view-mode-teaser {
+    h3.linked-h3 {
+      margin-bottom: 0.5em;
+    }
+    &.type-board-member {
+      h3 {
+        @include font-size(20);
+      }
+      .field--job-title {
+        display: none;
+      }
+    }
+    &.type-officers {
+      // hide link for node 8692
+      &.nodeid-8692 {
+        .field--title {
+          display: block;
+        }
+        .field_extra_fields_title {
+          display: none;
+        }
+      }
+      .field--title {
+        display: none;
+      }
+      .field_extra_fields_title {
+        display: block;
+        #marketing & {
+          h3.linked-h3 {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

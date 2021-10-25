@@ -1,0 +1,261 @@
+/**
+ * Search
+ */
+#search-api-page-search-form-sitewide--2,
+#search-api-page-search-form-sitewide {
+  margin: 0;
+
+  .form-item.form-type-textfield {
+    float: left;
+    margin: 0;
+    width: 100%;
+    padding-right: 102px;
+
+    input[type="text"] {
+      #header & {
+        border: 0;
+      }
+      #content & {
+        height:42px;
+      }
+      width: 100%;
+      @extend %search;
+    }
+
+  }
+
+  input[type="submit"] {
+    width: 102px;
+    float: left;
+    margin-left: -102px;
+  }
+
+}
+
+.views-exposed-form .views-exposed-widgets .views-exposed-widget:first-child label {
+  margin-left: 0 !important;
+}
+.region-sidebar-first .case-advanced-search-block {
+    .views-exposed-widgets .views-exposed-widget {
+      margin-bottom: 20px !important;
+    }  
+}
+#content .case-advanced-search-block {
+  .views-exposed-widgets {
+    text-align: left;
+    padding-top: 15px;
+
+    .selectlist {
+      width: auto;
+    }
+
+    select {
+      width: 100%;
+      min-width: 100px;
+    }
+
+    .views-exposed-widget {
+      margin-bottom:20px;
+    }
+
+    @include breakpoint($desktop) {
+      .container-2,
+      .container-5 {
+        float: left;
+        width: 58%;
+      }
+
+      .container-3 {
+        margin-left: 61%;
+        padding-left: 3%;
+        padding-bottom: 20px;
+        border-left: $border;
+      }
+
+      .container-5,
+      .container-4 {
+        padding-top: 1em;
+        clear: left;
+      }
+
+      .container-6 {
+        margin-top: 1em;
+        padding-top: 2em;
+      }
+
+      .container-5,
+      .container-6 {
+        border-top: $border;
+      }
+
+    }
+
+    .container-3 .container-inline-date {
+      input[type="text"] {
+        width: 100%;
+      }
+
+      label {
+        display: block;
+      }
+
+    }
+
+    .container-3 #edit-date-wrapper .views-widget > div {
+      max-width:49%;
+      margin-right:1%;
+      float:left;
+    }
+
+    .container-4 {
+      text-align: center;
+      clear: both;
+
+      .form-submit {
+        width: 60%;
+      }
+
+    }
+
+    .form-wrapper > .form-item,
+    .container-2,
+    .container-5,
+    .container-3,
+    .container-6 {
+      @include clearfix();
+
+      &.form-item-issue {
+        border-bottom: $border;
+      }
+
+      label {
+        margin-top: 0;
+      }
+
+      @include breakpoint($tablet) {
+        > .views-exposed-widget > label {
+          width: 160px;
+          padding-right: 20px;
+          float: left;
+          margin-right: -100%;
+          margin-left: 0;
+          line-height: 1.3em;
+
+          + * {
+            margin-left: 160px;
+          }
+
+          + input + select {
+            margin-left: 160px;
+            width: 68%;
+            display: block !important;
+          }
+
+        }
+
+      }
+
+    }
+
+    .views-submit-button {
+      display: block;
+      @include clearfix();
+    }
+
+    #edit-fieldset-court-options {
+      border-bottom: $border;
+
+      @include breakpoint($desktop) {
+        border-color: transparent;
+      }
+
+      .container-content > .form-item {
+        padding-bottom: 20px;
+        @include clearfix();
+
+        label {
+          width: 200px;
+          padding-right: 20px;
+          float: left;
+          margin-right: -100%;
+          line-height: 1.3em;
+
+          + * {
+            margin-left: 160px;
+          }
+
+        }
+
+      }
+
+    }
+
+    .container-5 {
+      @include clearfix();
+
+      .bef-select-as-radios,
+      .form-radios {
+        @include breakpoint($tablet) {
+          column-count: 2;
+          min-width: 450px; 
+        }
+
+        @include breakpoint($desktop-only) {
+          column-count: 1;
+        }
+
+      }
+
+      @include breakpoint($tablet) {
+        .label {
+          width: 160px;
+          padding-right: 20px;
+          margin-right: -100%;
+          float: left;
+          line-height: 1.3em;
+
+          + * {
+            margin-left: 160px;
+          }
+
+        }
+
+      }
+
+    }
+
+    @include breakpoint($all-devices) {
+      .container-5,
+      .container-3,
+      .container-6,
+      .container-4 {
+        border-top: 1px solid #ccc;
+        padding-top: 1em;
+      }
+
+    }
+    .form-item-date-min-date {
+      width: 90%;
+    }
+
+    .form-item-date-max {
+     position: relative;
+     left: 11em;
+     bottom: 5.75em;
+     width: 90%
+    }
+    .container-3 .form-item-date-max {
+      left:0;
+      bottom:0;
+      width:auto;
+    }
+    .container-3 #edit-date-wrapper .description {
+      display:none;
+    }
+  }
+
+}
+
+.no-sidebars.page-node-8689 #content {
+  max-width: none;
+}

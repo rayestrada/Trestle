@@ -1,0 +1,65 @@
+// Colors
+$black: #363636;
+$ltblue: #2c99c5;
+$medblue: #175588;
+$linkblue: #1b79c2;
+$blue: #1d415b;
+$ltgray: #d3d6d9;
+$medgray: #8c9398;
+$dkgray:#555555;
+$owhite: #e6e8ea; //#f1f2f4;
+$red: #a3302a;
+$white: #fff;
+
+// Issue colors
+$salmon: #f76f65;
+$tomato: #ef4a02;
+$crimson: #d7110d;
+$orange: #f67707;
+$yelloworange: #f6aa07;
+$sienna: #bc6621;
+$umber: #926204;
+$teal: #017961;
+$yellowgreen: #b1c90d;
+$green: #2d9e33;
+$pine: #2f6225;
+$avocado: #6d9724;
+$aqua: #01bb9a;
+$cobalt: #3c23d7;
+$steelblue: #185892;
+$indigo: #4c2b87;
+$redviolet: #a42b5b;
+$orchid:#dc4ccf;
+$pink: #f9568c;
+$purple: #912ba4;
+$brickred: #db4b4a;
+$lilac: #976df8;
+$lime: #7dd741;
+$periwinkle: #4a7ff8;
+$blueviolet: #6118e5;
+$seafoam: #26c479;
+$goldenrod: #cfb44b;
+
+// Extra issue colors if needed
+$coral: #f79d75;
+$gold: #f6d707;
+$chartreuse: #e0e636;
+$olive: #53540c;
+$maroon: #790835;
+$saddlebrown: #733406;
+
+// global use cases
+$dark: $black;
+$light: $owhite;
+$highlight: $ltblue;
+
+// style swatches in fabricator
+.light {
+  border-color: $light;
+}
+.dark {
+  border-color: $dark;
+}
+.highlight {
+  border-color: $highlight;
+}

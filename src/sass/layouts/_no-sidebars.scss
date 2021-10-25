@@ -1,0 +1,35 @@
+/**
+ * The layout when there are no sidebars.
+ */
+
+
+
+@include breakpoint($desktop) {
+
+  @include add-grid(14);
+  @include add-gutter(1/3);
+
+  .no-sidebars {
+    /* Span 3 columns, starting in 2nd column from left. */
+    #content {
+      //@include grid-span(10, 2);
+      h1#page-title {
+        //text-align: center;
+      }
+    }
+    &.page-node,
+    &.page-taxonomy-term {
+      #content,
+      #term-description {
+        @include center(800px);
+      }
+    }
+  }
+}
+.no-sidebars {
+  #content {
+    h1#page-title {
+      text-align: center;
+    }
+  }
+}

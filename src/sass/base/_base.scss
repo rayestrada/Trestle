@@ -1,0 +1,48 @@
+@import "fonts";
+@import "colors";
+@import "breakpoints";
+@import "mixins";
+@import "accessibility";
+
+$base-font-size:   10px; // The font size set on the root html element.
+$base-line-height: $base-font-size; // This line-height determines the basic unit of vertical rhythm.
+$lineheight: 1.6em;
+$modular-scale-ratio: $minor-third;
+$modular-scale-base: 1.6rem;
+
+//Define your border
+$border: 1px solid #ccc;
+
+// The amount lists, blockquotes and comments are indented.
+$indent-amount: 30px;
+
+@import "normalize";
+@import "typography";
+
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  @include font-size(18);
+  line-height: $lineheight;
+  font-family: $base-font-family;
+  min-width: $min-width;
+  color: $black;
+  // crisper font aliasing
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include breakpoint($desktop) {
+    &.expanded {
+      #page #header {
+        padding-top: 200px;
+      }
+    }
+  }
+  @include breakpoint($all-devices) {
+    &.menu-active {
+      @include noscroll;
+    }
+  }
+}
